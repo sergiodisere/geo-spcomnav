@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.leaflet-container {
+  z-index: 0;
+  margin-top: 2%;
+}
