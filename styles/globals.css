@@ -19,3 +19,11 @@ a {
   z-index: 0;
   margin-top: 2%;
 }
+
+/*.leaflet-fade-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-zoom-animated { will-change:auto !important; }
+
+*/
+
+.markercluster-map {
+  height: 90vh;
+}
