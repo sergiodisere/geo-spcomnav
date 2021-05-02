@@ -27,3 +27,42 @@ a {
 .markercluster-map {
   height: 90vh;
 }
+
+.leaflet-popup-content{
+  width: auto !important;
+}
+
+/*SPINNER */
+.spinner {
+  border: 4px solid rgb(0,0,0,.1);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  position: absolute;
+  left:0;
+	right:0;
+	top:0;
+	bottom:0;
+  margin: auto;
+  margin-top: 40vh;
+  animation: spin 1s ease infinite;
+  z-index: 1;
+}
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
