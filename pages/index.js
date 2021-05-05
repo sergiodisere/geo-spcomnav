@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import dynamic from "next/dynamic";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import styles from '../styles/Home.module.css'
 
+
 export default function Home() {
-  const MapWithNoSSR = dynamic(() => import("../components/map"), {
+  const MapWithNoSSR = dynamic(() => import("../components/MapView/map"), {
     ssr: false
   });
   return (
@@ -12,12 +16,19 @@ export default function Home() {
         <title>Geo-SCPOMNAV</title> 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a>Geo-SCPOMNAV!</a>
-        </h1>
+      
+      <div className="container-fluid">
+        <div className="row m-3">
+          <div className="col-12">
+            <h1 className={styles.title}>
+            Welcome to <a>Geo-SCPOMNAV!</a>
+            </h1>
+          </div>
+        </div>
         <MapWithNoSSR></MapWithNoSSR>
+      </div>
+      <main className={styles.main}>
+        
         <p className={styles.description}>
           {/*Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code> */}

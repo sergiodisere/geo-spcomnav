@@ -3,7 +3,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; 
 }
 
 a {
@@ -45,7 +45,6 @@ a {
 	top:0;
 	bottom:0;
   margin: auto;
-  margin-top: 40vh;
   animation: spin 1s ease infinite;
   z-index: 1;
 }
@@ -62,7 +61,13 @@ a {
   }
 }
 
+.dropdown-menu {
+  height: 300px;
+  overflow-y: scroll;
+}
 
 
-
-
+.title-select {
+  margin-top: 20px;
+  color:black;
+}

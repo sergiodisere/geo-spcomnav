@@ -13,13 +13,15 @@ const sftpConfig = {
 }
 
 export default async (req,res) =>{
+  console.log(req.body)
+  
   console.log(sftp.client.config.host)
   console.time('Connection Time');
   await  (sftp.client.config.host ? true : sftp.connect(sftpConfig))
   console.timeEnd('Connection Time')
   
   console.time('Extraction Time');
-  sftp.get("/IGNSSRX/SCENARIOS/VIPER/TRUTH/Jun/20140604/A0/20140604_A0.GE.kml").then((data) => {   // /IGNSSRX/SCENARIOS/VIPER/TRUTH/Apr/20140604/A0/20140604_A0.GE.kml /IGNSSRX/SCENARIOS/VIPER/TRUTH/Apr/20140409/A1/20140409_A1_truth.kml
+  sftp.get(req.body).then((data) => {  // /IGNSSRX/SCENARIOS/VIPER/TRUTH/Apr/20140604/A0/20140604_A0.GE.kml /IGNSSRX/SCENARIOS/VIPER/TRUTH/Apr/20140409/A1/20140409_A1_truth.kml
     res.setHeader('Content-Type', 'text/xml');
     res.send(data);
     console.timeEnd('Extraction Time')

@@ -1,5 +1,9 @@
 export const getKML = (url) => {
-  return fetch("./api/sftp") //'20140604_A0.GE.kml' "20140409_A1_truth.kml"
+  return fetch("./api/sftp", 
+  {
+    method: 'POST',
+    body: url
+ }) //'20140604_A0.GE.kml' "20140409_A1_truth.kml"
   .then((res) => res.text())
   .then((kmlText) => {
     const parser = new DOMParser();
