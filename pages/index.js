@@ -2,8 +2,10 @@ import Head from 'next/head'
 import dynamic from "next/dynamic";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Navbar from '../components/NavBar/NavBar'
 
 import styles from '../styles/Home.module.css'
+
 
 
 export default function Home() {
@@ -11,11 +13,14 @@ export default function Home() {
     ssr: false
   });
   return (
+    <>
+    <Navbar fixed/>
     <div className={styles.container}>
       <Head>
         <title>Geo-SCPOMNAV</title> 
         <link rel="icon" href="/favicon.ico" />
       </Head>
+     
       
       <div className="container-fluid">
         <div className="row m-3">
@@ -58,5 +63,6 @@ export default function Home() {
         </a>
       </footer>
     </div>
+    </>
   )
 }

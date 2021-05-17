@@ -71,3 +71,13 @@ a {
   margin-top: 20px;
   color:black;
 }
+
+/*Line Separator Navbar */
+@media only screen and (min-width: 960px) {
+  .navbar .navbar-nav .nav-item .nav-link {
+    padding: 0 1em;
+  }
+  .navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+    border-right: 2px solid #000000;
+  }
+}
