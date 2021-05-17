@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from 'react';
+import ReactDOMServer from "react-dom/server";
 
-import { MapContainer, TileLayer,Marker,Popup,useMapEvents, GeoJSON } from 'react-leaflet'
+
+import { MapContainer, TileLayer,Marker,Popup,useMapEvents, useMap } from 'react-leaflet'
 import ReactLeafletKml from 'react-leaflet-kml';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 
@@ -12,6 +14,8 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import {getKML} from '../../services/kml/getKML';
 
 import SelectList from '../SelectList/SelectList'
+import Table from '../Table/Table'
+import PopUp from '../PopUp/PopUp'
 
 const Map = () => {
   
@@ -19,16 +23,19 @@ const Map = () => {
   const [url, setUrl] = React.useState("/IGNSSRX/SCENARIOS/VIPER/TRUTH/Apr/20140424/A1/20140424_A1.GE.kml");
   const [map, setMap] = React.useState(null);
 
+  const [point1, setPoint1] = React.useState(null);
+  const [point2, setPoint2] = React.useState(null);
+
   useEffect(() => {
     getKML(url).then((kml)=>{
       setKml(kml)
-    })
+    })    
   }, [url]);
 
   return (
     <div>  
       <div className="row m-3">
-        <SelectList kml={kml} setKml={setKml} setUrl={setUrl}></SelectList>            
+        <SelectList kml={kml} setKml={setKml} setUrl={setUrl} url={url}></SelectList>            
         <div className="col-sm-8 col-sm-offset-4 col-md-10 col-md-offset-3">
          
           {!kml && 
@@ -42,40 +49,21 @@ const Map = () => {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+                  
+
             {kml && <MarkerClusterGroup disableClusteringAtZoom={18} maxClusterRadius={60} chunkedLoading={true}>
-                <ReactLeafletKml kml={kml} />
+              
+                <ReactLeafletKml kml={kml} >
+                
+                  </ReactLeafletKml> 
             </MarkerClusterGroup>}      
           </MapContainer>
-
+          
         </div>
       </div>
+      {map && <PopUp map={map} url={url} /> }
+      
 
-      <div className="row m-3">
-        <div className="col">
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Size</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Name 1</td>
-                <td>Size 1</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Name 2</td>
-                <td>Size 2</td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from 'react';
 
 import {data} from '../SelectList/data'
+import {getSamples} from '../../services/samples/getSamples';
 
-const SelectList = ({kml, setKml, setUrl}) => {
+const SelectList = ({kml, setKml, setUrl, url}) => {
   const mystyle = {
     height: "230px",
     overflow: "auto",
@@ -24,6 +25,9 @@ const SelectList = ({kml, setKml, setUrl}) => {
       })}
 
     </select>
+
+    <button type="button" className="btn btn-primary" disabled={kml ? false : true} onClick={()=>{getSamples(url)}}>Get Samples</button>
+
   </div>
   )
 }

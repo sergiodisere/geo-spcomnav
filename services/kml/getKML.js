@@ -1,5 +1,5 @@
 export const getKML = (url) => {
-  return fetch("./api/sftp", 
+  return fetch("./api/fileKml", 
   {
     method: 'POST',
     body: url
