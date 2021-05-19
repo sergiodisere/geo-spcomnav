@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .main {
@@ -14,7 +15,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+ 
 }
+
 
 .footer {
   width: 100%;
@@ -23,6 +26,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: smaller;
+  background-color: #eaeaea;
+  
+}
+
+.footer a {
+  margin-top: 1%;
 }
 
 .footer img {
@@ -38,7 +48,7 @@
 
 .title a {
   color: #0070f3 !important;
-
+  
 }
 
 
@@ -46,7 +56,8 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
-  font-weight: bold;
+  font-weight:bold;
+  font-family: Josefin Sans; 
 }
 
 .title,

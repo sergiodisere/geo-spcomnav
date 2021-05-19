@@ -6,30 +6,27 @@ import Navbar from '../components/NavBar/NavBar'
 
 import styles from '../styles/Home.module.css'
 
-
-
 export default function Home() {
   const MapWithNoSSR = dynamic(() => import("../components/MapView/map"), {
     ssr: false
   });
   return (
     <>
-    <Navbar fixed/>
-    <div className={styles.container}>
       <Head>
         <title>Geo-SCPOMNAV</title> 
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
       </Head>
-     
-      
-      <div className="container-fluid">
-        <div className="row m-3">
-          <div className="col-12">
-            <h1 className={styles.title}>
+    <Navbar/>
+
+    <div className="mb-2">
+        <h1 className={styles.title}>
             Welcome to <a>Geo-SCPOMNAV!</a>
-            </h1>
-          </div>
-        </div>
+        </h1>
+    </div>
+    
+    <div className={styles.container}>
+      <div className="container-fluid">
         <MapWithNoSSR></MapWithNoSSR>
       </div>
       <main className={styles.main}>
@@ -42,27 +39,35 @@ export default function Home() {
           <a></a>
         </div>
       </main>
-      <footer className={styles.footer}>
-        
-        <a
-          href="https://www.linkedin.com/in/sergio-díaz98"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Create by Sergio Díaz Serena -
-          {/* <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /> */}
-        </a>
-        &nbsp;
-        <a
-          href="http://spcomnav.uab.es/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          For SCPOMNAV UAB 
-          {/* <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /> */}
-        </a>
-      </footer>
     </div>
+    <footer className={styles.footer}>
+        <text>
+          <a
+            href="https://www.uab.cat/enginyeria/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            2021 Universitat Autònoma de Barcelona - Escola d'Enginyeria
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sergio-díaz98"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            
+            &copy; Create by Sergio Díaz Serena 
+          {/* <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /> */}
+          </a>
+          <a
+            href="http://spcomnav.uab.es/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            For SCPOMNAV UAB 
+            {/* <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /> */}
+          </a>       
+        </text>        
+      </footer>
     </>
   )
 }

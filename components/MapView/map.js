@@ -1,8 +1,7 @@
-import React, { useState, useEffect} from 'react';
-import ReactDOMServer from "react-dom/server";
+import React, {useEffect} from 'react';
+import Card from "react-bootstrap/Card";
 
-
-import { MapContainer, TileLayer,Marker,Popup,useMapEvents, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer} from 'react-leaflet'
 import ReactLeafletKml from 'react-leaflet-kml';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 
@@ -14,7 +13,6 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import {getKML} from '../../services/kml/getKML';
 
 import SelectList from '../SelectList/SelectList'
-import Table from '../Table/Table'
 import PopUp from '../PopUp/PopUp'
 
 const Map = () => {
@@ -22,9 +20,6 @@ const Map = () => {
   const [kml, setKml] = React.useState(null);
   const [url, setUrl] = React.useState("/IGNSSRX/SCENARIOS/VIPER/TRUTH/Apr/20140424/A1/20140424_A1.GE.kml");
   const [map, setMap] = React.useState(null);
-
-  const [point1, setPoint1] = React.useState(null);
-  const [point2, setPoint2] = React.useState(null);
 
   useEffect(() => {
     getKML(url).then((kml)=>{
@@ -43,27 +38,23 @@ const Map = () => {
               <div className="spinner"/>
             </div>
           } 
-        
-          <MapContainer whenCreated={setMap} minZoom={5} animate={false} updateWhenZooming={false} center={[51.505, -0.09]} zoom={7} style={{height: "60vh"}}>
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-                  
-
-            {kml && <MarkerClusterGroup disableClusteringAtZoom={18} maxClusterRadius={60} chunkedLoading={true}>
-              
-                <ReactLeafletKml kml={kml} >
+          <Card>
+            <MapContainer whenCreated={setMap} minZoom={5} animate={false} updateWhenZooming={false} center={[51.505, -0.09]} zoom={7} style={{height: "60vh"}}>
+              <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {kml && <MarkerClusterGroup disableClusteringAtZoom={18} maxClusterRadius={60} chunkedLoading={true}>
                 
-                  </ReactLeafletKml> 
-            </MarkerClusterGroup>}      
-          </MapContainer>
-          
+                  <ReactLeafletKml kml={kml} >
+                  
+                    </ReactLeafletKml> 
+              </MarkerClusterGroup>}     
+            </MapContainer>
+          </Card>
         </div>
       </div>
       {map && <PopUp map={map} url={url} /> }
-      
-
     </div>
   )
 }
