@@ -26,7 +26,7 @@ const navBar = () => {
               <Link href="/"><a className="nav-link text-dark">Home</a></Link>
             </li>
             <li className="nav-item">
-              <Link href="/about"><a className="nav-link text-dark">About</a></Link>
+              <Link href="/map"><a className="nav-link text-dark">Map</a></Link>
             </li>
             <li className="nav-item">
               <Link href="/contact"><a className="nav-link text-dark">Contact</a></Link>
