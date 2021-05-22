@@ -1,5 +1,5 @@
 import moment from 'moment'; 
-
+import {addDB} from '../../firebase/client'
 const path = '/IGNSSRX/GNSS_SAMPLES/Vehicular Data Store/2014'
 //Format URL: /IGNSSRX/SCENARIOS/VIPER/TRUTH/Apr/20140604/A0/20140604_A0.GE.kml
 const getPathSample = (url, point1, point2, typeSPS) =>{
@@ -55,13 +55,15 @@ export const getSamples = (url, point1, point2, typeSPS) => {
       if(typeof data !== 'undefined'){
         console.log(data)
         //Force Download
-        var url = window.URL.createObjectURL(data);
+        var urlD = window.URL.createObjectURL(data);
         var a = document.createElement('a');
-        a.href = url;
+        a.href = urlD;
         a.download = "filename.A0";
         document.body.appendChild(a); 
         a.click();    
         a.remove();  
+        const fileName = url.split("/", -1)
+        addDB(fileName[fileName.length-1], point1,point2, typeSPS)
       }
     });
   }else{

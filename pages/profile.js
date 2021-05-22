@@ -1,17 +1,22 @@
 import Head from 'next/head'
-import dynamic from "next/dynamic";
+import React, { useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navbar from '../components/NavBar/NavBar'
 import About from '../components/About/about'
 import Footer from '../components/Footer/footer'
+import ProfileC from '../components/Profile/Profile'
 import styles from '../styles/Home.module.css'
 
-export default function Map() {
-  const MapWithNoSSR = dynamic(() => import("../components/MapView/map"), {
-    ssr: false
-  });
+import { Row, Col, Card, Button } from 'reactstrap';
+import { useRouter } from 'next/router'
+import { onAuthStateChanged } from '../firebase/client';
 
+export default function Profile() {
+
+  useEffect(()=>{
+   
+  }, []);
 
   return (
     <>
@@ -20,20 +25,15 @@ export default function Map() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
       </Head>
-    <Navbar/>
-  
-    <div className="mb-2">
-        <h1 className={styles.title}>
-            Welcome to <a>Geo-SCPOMNAV!</a>
-        </h1>
-    </div>
-  
-    <div className={styles.container}>
-      <div className="container-fluid">
-        <MapWithNoSSR></MapWithNoSSR>
+      
+      <Navbar/>
+
+      <div className="justify-content-center mb-5 px-5 pt-5 contentProfile">
+        <ProfileC/>
       </div>
-    </div>
-    <Footer/>
+      <div className="">
+       <Footer/>
+      </div>
     </>
   )
 }

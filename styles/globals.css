@@ -105,3 +105,17 @@ a {
   height:157px; 
 
 }
+
+.textAbout {
+  color: rgba(71,85,105,var(--tw-text-opacity))
+}
+
+.avatarProfile {
+  margin-top: -5rem!important;
+  width: 120px;
+  height: 120px;
+}
+
+.contentProfile {
+  min-height: 70vh;
+}

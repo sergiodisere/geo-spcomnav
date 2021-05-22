@@ -3,7 +3,9 @@ export default function Footer() {
 
   return (
     <>
+    
     <footer className={styles.footer}>
+      <div>
         <text>
           <a
             href="https://www.uab.cat/enginyeria/"
@@ -29,7 +31,8 @@ export default function Footer() {
             For SCPOMNAV UAB 
             {/* <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /> */}
           </a>       
-        </text>        
+        </text>    
+        </div>    
       </footer>
     </>
   )

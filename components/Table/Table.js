@@ -84,7 +84,7 @@ const Table = ({url, point1, point2, setPoint1, setPoint2}) => {
             </select>
         </div>
 
-        <button type='button' onClick={clickButtonDownload} className='btn btn-primary' disabled={downloadFile==false ? false : true}>
+        <button type='button' onClick={clickButtonDownload} className='btn btn-primary mb-5' disabled={downloadFile==false ? false : true}>
           {downloadFile==true && <Spinner
             as="span"
             animation="grow"

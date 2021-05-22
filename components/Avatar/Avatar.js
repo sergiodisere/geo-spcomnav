@@ -2,10 +2,12 @@ import React, { useState, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { useRouter } from 'next/router'
 
 import {signOut} from '../../firebase/client'
 
 const Avatar = ({src, username}) => {
+  const router=useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -21,6 +23,9 @@ const Avatar = ({src, username}) => {
       console.log("Sign-Out Successfull")
     })
   }
+  const goProfile = () => {
+    router.push('/profile')
+  }
   return (
     <>
       <img src={src} alt="Avatar" className="avatar"/>    
@@ -35,7 +40,7 @@ const Avatar = ({src, username}) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={goProfile}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <MenuItem onClick={logout}>Logout</MenuItem>
       </Menu>

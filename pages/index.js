@@ -20,21 +20,13 @@ export default function Home() {
   
     <div className="mb-2">
         <h1 className={styles.title}>
-            Welcome to <a>Geo-SCPOMNAV!</a>
+            Welcome to <a>SCPOMNAV!</a>
         </h1>
     </div>
   
     <div className={styles.container}>
     <Carousel/>
-      <main className={styles.main}>
-        <p className={styles.description}>
-          {/*Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code> */}
-        </p>
-        <div className={styles.grid}>
-          <a></a>
-        </div>
-      </main>
+      
       <About/>
     </div>
     <Footer/>
